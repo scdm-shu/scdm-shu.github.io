@@ -5,7 +5,7 @@ menuIconMap["学术论文"] = "fa-globe-asia";
 menuIconMap["科研项目"] = "fa-flask";
 menuIconMap["专业服务"] = "fa-concierge-bell";
 menuIconMap["教学工作"] = "fa-book-open";
-menuIconMap["联系方式"] = "fa-map-marked-alt";
+menuIconMap["联系我们"] = "fa-map-marked-alt";
 
 
 var hrefMenu = document.getElementsByClassName("site-page");
