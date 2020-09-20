@@ -1,6 +1,6 @@
 var menuIconMap = {};
 menuIconMap["负责人"] = "fa-user";
-menuIconMap["科研团队"] = "fa-users";
+menuIconMap["团队成员"] = "fa-users";
 menuIconMap["学术论文"] = "fa-globe-asia";
 menuIconMap["科研项目"] = "fa-flask";
 menuIconMap["专业服务"] = "fa-concierge-bell";
