@@ -17,6 +17,7 @@ $(function () {
         }
     })
 
+    /*
     $(".m-social-links").click(function () {
         if ($(".author-links").hasClass("is-open")) {
             $(".author-links").removeClass("is-open").addClass("is-close")
@@ -24,6 +25,7 @@ $(function () {
             $(".author-links").removeClass("is-close").addClass("is-open")
         }
     })
+    */
 
     $(".site-nav").click(function () {
         if ($(".nav").hasClass("nav-open")) {
