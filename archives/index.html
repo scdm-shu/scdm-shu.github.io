@@ -3,7 +3,7 @@
 <p>实验室长期开展校企合作项目研发工作，主要采用物联网技术、面向服务的系统集成、人工智能算法、数据挖掘和推荐系统等开展面向环境、医疗、电力、金融和教育等多个垂直领域的大数据管理与智能分析平台建设，研发了若干个已产生一定经济和社会效益的信息平台。欢迎对实验室研究方向和校企合作项目感兴趣的同学与课题组负责人邹国兵老师联系。</p>
 <hr>
 <h3 id="最新动态"><a href="#最新动态" class="headerlink" title="最新动态 "></a>最新动态 <img src="/img/new.gif"></h3><ul>
-<li><p>2020-9-20&amp;&amp;&amp;&amp;实验室一篇论文“DeepWSC: Clustering Web Services via Integrating Service Composability into Deep Semantic Features”，被服务计算领域最顶级期刊IEEE Transactions on Services Computing (IEEE TSC)录用！</p>
+<li><p>2020-9-20&amp;&amp;&amp;&amp;实验室一篇论文<a target="_blank" rel="noopener" href="https://doi.org/10.1109/TSC.2020.3026188">“DeepWSC: Clustering Web Services via Integrating Service Composability into Deep Semantic Features”</a>，被服务计算领域最顶级期刊IEEE Transactions on Services Computing (IEEE TSC)录用！</p>
 </li>
 <li><p>2020-9-11&amp;&amp;&amp;&amp;实验室新版主页上线！</p>
 </li>
@@ -12,9 +12,6 @@
 <li><p>2020-4-22&amp;&amp;&amp;&amp;实验室一篇论文“Distance-aware Edge User Allocation with QoE Optimization”，被服务计算领域顶级会议IEEE International Conference on Web Services (ICWS 2020)长文录用（19%）！</p>
 </li>
 </ul>
-<!-- + **<u>Guobing Zou</u>**, Bofeng Zhang, Yanglan Gan, Jianwen Zhang. [An ontology-based methodology for semantic expansion search](/papers/2008-FSKD-Zou.pdf). **International Conference on Fuzzy Systems and Knowledge Discovery (FSKD)**, pp. 453-457, 2008. (EI)
-+ Bo Zhang, Yang Xiang, Bei Zhang, **<u>Guobing Zou</u>**. [Semantics driven decision making and its dynamic semantics presentation](/papers/2008-ICICTA-Zhang.pdf). **International Conference on Intelligent Computation Technology and Automation (ICICTA)**, pp. 1135-1139, 2008. (EI) -->
-
 <!-- 下面是调整页面风格的代码，和页面内容无关 -->
 
 <style type="text/css">
@@ -87,7 +84,11 @@
       return (d>=0&&this.lastIndexOf(endStr)==d)
     }
 
-    // 根据article节点下的ul来生成无图片的学生信息
+    function delHtmlTag(str)
+    {
+        return str.replace(/<[^>]+>/g,"");
+    }
+
     function createPlainList()
     {
         var article = document.getElementsByTagName('article')[0];
@@ -99,39 +100,38 @@
             var divList = new Array();
             for(var j = 0; j < liList.length; j++)
             {
-                var splitStr = liList[j].innerText.split("&&");
+                console.log(liList[j]);
+                console.log(liList[j].innerHTML);
+                var splitStr = liList[j].innerHTML.split("&amp;&amp;");
+                console.log(splitStr);
                 while(splitStr.length < 3)
                 {
                     splitStr.push("");
                 }
-
                 var divPlain = document.createElement('div');
-
                 var divTitle = document.createElement('div');
-
                 var fontPlainTitle = document.createElement('font');
                 fontPlainTitle.setAttribute("class", "font-plain-title");
-                fontPlainTitle.innerText = splitStr[0];
+
+                fontPlainTitle.innerText = delHtmlTag(splitStr[0]);
                 divTitle.appendChild(fontPlainTitle);
 
                 var fontPlainSubTitle = document.createElement('font');
                 fontPlainSubTitle.setAttribute("class", "font-plain-sub-title");
-                fontPlainSubTitle.innerText = splitStr[1]; 
+                fontPlainSubTitle.innerText = delHtmlTag(splitStr[1]);
                 divTitle.appendChild(fontPlainSubTitle);
 
                 divPlain.appendChild(divTitle);
 
                 var fontPlainDesc = document.createElement('font');
                 fontPlainDesc.setAttribute("class", "font-plain-description");
-                fontPlainDesc.innerText = splitStr[2]; 
+                fontPlainDesc.innerHTML = splitStr[2]; 
                 divPlain.appendChild(fontPlainDesc);
 
                 article.insertBefore(divPlain, ulList[i]);
             }
-
             article.removeChild(ulList[i]);
         }
     }
-
     createPlainList();
 </script></article></div></main><div class="nav-wrap"><div class="nav"><button class="site-nav"><div class="navicon"></div></button><ul class="nav_items"><li class="nav_item"><a class="nav-page" href="/%E8%B4%9F%E8%B4%A3%E4%BA%BA"> 负责人</a></li><li class="nav_item"><a class="nav-page" href="/%E5%9B%A2%E9%98%9F%E6%88%90%E5%91%98"> 团队成员</a></li><li class="nav_item"><a class="nav-page" href="/%E5%AD%A6%E6%9C%AF%E8%AE%BA%E6%96%87"> 学术论文</a></li><li class="nav_item"><a class="nav-page" href="/%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE"> 科研项目</a></li><li class="nav_item"><a class="nav-page" href="/%E4%B8%93%E4%B8%9A%E6%9C%8D%E5%8A%A1"> 专业服务</a></li><li class="nav_item"><a class="nav-page" href="/%E6%95%99%E5%AD%A6%E5%B7%A5%E4%BD%9C"> 教学工作</a></li><li class="nav_item"><a class="nav-page" href="/%E8%81%94%E7%B3%BB%E6%88%91%E4%BB%AC"> 联系我们</a></li></ul></div><div class="cd-top"><i class="fa fa-arrow-up" aria-hidden="true"></i></div></div><footer id="page_footer"><div class="footer_wrap"><img src="/img/scdm-logo-colorful-72ppi.png" style="width: 300px"><div style="float:right;"> <a href="https://www.shu.edu.cn/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;"><img src="/img/shu.svg" style="width: 160px"></a></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery-pjax@latest/jquery.pjax.min.js"></script><script src="/js/main.js"></script><script src="/js/add_menu_icon.js"></script></body></html>
