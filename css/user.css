@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "Open Sans Regular";
+  src: url("/fonts/OpenSans-Regular.ttf");
+}
+@font-face {
+  font-family: "Romanesco";
+  src: url("/fonts/Romanesco-Regular.ttf");
+}
+@font-face {
+  font-family: "Damion";
+  src: url("/fonts/Damion-Regular.ttf");
+}
+body {
+  background-color: #fff;
+  background-image: url("/img/brick-wall.png");
+}
+.side-card {
+  background-color: #f8f9f9;
+  border-radius: 3px;
+}
+.page {
+  background-color: #f8f9f9;
+  border-radius: 3px;
+}
+.author-bio {
+  text-align: center;
+}
