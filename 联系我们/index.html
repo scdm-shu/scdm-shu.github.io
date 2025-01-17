@@ -1,0 +1,131 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"><title>SCDM Lab</title><meta name="author" content="邹国兵"><link rel="shortcut icon" href="/img/scdm-logo.png"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><meta name="generator" content="Hexo 5.1.1"></head><body><header id="page_header"><div class="header_wrap"><div id="blog_name"><a class="blog_title" id="site-name" href="/">SCDM Lab</a></div><button class="menus_icon"><div class="navicon"></div></button><ul class="menus_items"><li class="menus_item"><a class="site-page" href="/%E8%B4%9F%E8%B4%A3%E4%BA%BA"> 负责人</a></li><li class="menus_item"><a class="site-page" href="/%E5%9B%A2%E9%98%9F%E6%88%90%E5%91%98"> 团队成员</a></li><li class="menus_item"><a class="site-page" href="/%E5%AD%A6%E6%9C%AF%E8%AE%BA%E6%96%87"> 学术论文</a></li><li class="menus_item"><a class="site-page" href="/%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE"> 科研项目</a></li><li class="menus_item"><a class="site-page" href="/%E4%B8%93%E4%B8%9A%E6%9C%8D%E5%8A%A1"> 专业服务</a></li><li class="menus_item"><a class="site-page" href="/%E6%95%99%E5%AD%A6%E5%B7%A5%E4%BD%9C"> 教学工作</a></li><li class="menus_item"><a class="site-page" href="/%E8%81%94%E7%B3%BB%E6%88%91%E4%BB%AC"> 联系我们</a></li></ul></div></header><main id="page_main"><div class="side-card sticky"><div class="card-wrap" itemscope itemtype="http://schema.org/Person"><div class="author-avatar"><img class="avatar-img" src="/img/ZouGB.jpg" onerror="this.onerror=null;this.src='/img/ZouGB.jpg'" alt="avatar"></div><div class="author-discrip"><h3>邹国兵</h3><p class="author-bio">教授、博导、副院长</p></div><div class="author-links"><ul class="social-links"><li><a class="e-social-link" href="mailto:gbzou@shu.edu.cn" target="_blank"><i class="fas fa-envelope-open" aria-hidden="true"></i><span>gbzou@shu.edu.cn</span></a></li></ul></div></div></div><div class="page" itemscope itemtype="http://schema.org/CreativeWork"><h2 class="page-title"></h2><article><h2 id="上海大学服务计算与数据挖掘实验室"><a href="#上海大学服务计算与数据挖掘实验室" class="headerlink" title="上海大学服务计算与数据挖掘实验室"></a>上海大学服务计算与数据挖掘实验室</h2><hr>
+<div id="map_container" style="600px; height: 400px;"></div> 
+
+<h2 id="我们在上大"><a href="#我们在上大" class="headerlink" title="我们在上大"></a>我们在上大</h2><!--![](/img/school.jpg)-->
+<p><img src="/img/shu-main-gate.jpg"></p>
+<!--![](/img/shu-east-gate.jpg)-->
+<p><img src="/img/shu-qwc.jpg"></p>
+<!--![](/img/shu-lib.jpg)-->
+
+
+
+<!-- 下面是修改html格式的js代码，与内容无关，若无需求请勿修改 -->
+<!-- author: Zhen Qin -->
+
+<script>
+function radius()
+{
+    var imgList = document.getElementsByClassName('page')[0].getElementsByTagName('img');
+    for(var i = 0; i < imgList.length; i++)
+    {
+        imgList[i].setAttribute("style", "border-radius: 8px;");
+    }
+}
+
+radius();
+</script>
+
+<script>
+    var url = 'https://webapi.amap.com/maps?v=1.4.15&key=b8238f0da23b1e1d9aaa6fc935fba5dc';
+    var jsapi = document.createElement('script');
+    jsapi.charset = 'utf-8';
+    jsapi.src = url;
+
+
+    jsapi.onload = function(){
+        var map = new AMap.Map('map_container', {
+            zoom:15,//级别
+            center: [121.399826, 31.317418],//中心点坐标
+        });
+
+        // 比例尺
+        AMap.plugin([
+            'AMap.Scale',
+        ], function(){
+            // 在图面添加工具条控件，工具条控件集成了缩放、平移、定位等功能按钮在内的组合控件
+            map.addControl(new AMap.Scale({}));
+        });
+
+        // 左上角工具条
+        AMap.plugin([
+            'AMap.ToolBar',
+        ], function(){
+            // 在图面添加工具条控件，工具条控件集成了缩放、平移、定位等功能按钮在内的组合控件
+            map.addControl(new AMap.ToolBar({
+                // 简易缩放模式，默认为 false
+                liteStyle: false
+            }));
+        });
+
+        // 鹰眼
+        var overView = AMap.plugin([
+            'AMap.OverView',
+        ], function(){
+            map.addControl(new AMap.OverView({
+                isOpen: true
+            }));
+        });
+
+        // var toolBar = new AMap.ToolBar({
+        //     visible: true
+        // });
+        // map.addControl(toolBar);
+
+        //实例化信息窗体
+        var content = [
+            "<font style=\"font-size: 1.2em;\"><strong>上海大学SCDM实验室&nbsp;&nbsp;</strong></font>",
+            "<font style=\"font-size: 0.9em;\">上大路99号</font>",
+            "<font style=\"font-size: 0.9em;\">上海市宝山区</font>"
+        ];
+
+        // 创建 infoWindow 实例    
+        var infoWindow = new AMap.InfoWindow({
+            content: content.join("<br>"),  //传入 dom 对象，或者 html 字符串
+            offset: new AMap.Pixel(0, -30)
+        });
+
+
+        //添加marker标记
+        function addMarker() {
+            map.clearMap();
+            var marker = new AMap.Marker({
+                map: map,
+                position: [121.399826, 31.317418],
+                title: "SCDM实验室",
+            });
+            //鼠标点击marker弹出自定义的信息窗体
+            AMap.event.addListener(marker, 'click', function () {
+                infoWindow.open(map, marker.getPosition());
+            });
+            infoWindow.open(map, marker.getPosition());
+        }
+
+        addMarker();
+
+        //关闭信息窗体
+        function closeInfoWindow() {
+            map.clearInfoWindow();
+        }
+    }
+    document.head.appendChild(jsapi);
+
+    // concole.log('map loaded');
+    // window.onLoad = function(){
+    //     var map = new AMap.Map('map_container');
+    //     concole.log('map loaded');
+    // }
+</script>
+
+<style type="text/css">
+    .amap-logo{
+    display: none;
+    opacity:0 !important;
+    }
+    .amap-copyright {
+        opacity:0;
+    }
+    #map_container
+    {
+        border-radius:8px;
+    }
+</style></article></div></main><div class="nav-wrap"><div class="nav"><button class="site-nav"><div class="navicon"></div></button><ul class="nav_items"><li class="nav_item"><a class="nav-page" href="/%E8%B4%9F%E8%B4%A3%E4%BA%BA"> 负责人</a></li><li class="nav_item"><a class="nav-page" href="/%E5%9B%A2%E9%98%9F%E6%88%90%E5%91%98"> 团队成员</a></li><li class="nav_item"><a class="nav-page" href="/%E5%AD%A6%E6%9C%AF%E8%AE%BA%E6%96%87"> 学术论文</a></li><li class="nav_item"><a class="nav-page" href="/%E7%A7%91%E7%A0%94%E9%A1%B9%E7%9B%AE"> 科研项目</a></li><li class="nav_item"><a class="nav-page" href="/%E4%B8%93%E4%B8%9A%E6%9C%8D%E5%8A%A1"> 专业服务</a></li><li class="nav_item"><a class="nav-page" href="/%E6%95%99%E5%AD%A6%E5%B7%A5%E4%BD%9C"> 教学工作</a></li><li class="nav_item"><a class="nav-page" href="/%E8%81%94%E7%B3%BB%E6%88%91%E4%BB%AC"> 联系我们</a></li></ul></div><div class="cd-top"><i class="fa fa-arrow-up" aria-hidden="true"></i></div></div><footer id="page_footer"><div class="footer_wrap"><a href="https://scdm-shu.github.io/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;"><img src="/img/scdm-logo-colorful-72ppi.png" style="width: 300px"></a><div style="float:right;"> <a href="https://www.shu.edu.cn/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;"><img src="/img/shu.svg" style="width: 160px"></a></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery-pjax@latest/jquery.pjax.min.js"></script><script src="/js/main.js"></script><script src="/js/add_menu_icon.js"></script></body></html>
